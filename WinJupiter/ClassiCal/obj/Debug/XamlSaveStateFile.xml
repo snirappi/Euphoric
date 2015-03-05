@@ -1,0 +1,10 @@
+<XamlCompilerSaveState>
+  <ReferenceAssemblyList>
+    <LocalAssembly PathName="d:\projects\307\classical\winjupiter\classical\obj\debug\intermediatexaml\classical.exe" HashGuid="91c63b82-1710-a24e-83e6-8426dfe8eb94" />
+    <ReferenceAssembly PathName="d:\projects\307\classical\winjupiter\classical\packages\coding4fun.toolkit.audio.2.0.8\lib\wpa81\coding4fun.toolkit.audio.dll" HashGuid="f1caf03e-ea7e-d20f-9b92-671aec21bcec" />
+    <ReferenceAssembly PathName="d:\projects\307\classical\winjupiter\classical\packages\coding4fun.toolkit.controls.2.1.0\lib\wpa81\coding4fun.toolkit.controls.dll" HashGuid="21a915fd-eec9-e7f8-8a81-6938e33d1e8f" />
+    <ReferenceAssembly PathName="d:\projects\307\classical\winjupiter\classical\packages\coding4fun.toolkit.controls.2.1.0\lib\wpa81\coding4fun.toolkit.dll" HashGuid="63c5f85e-39ba-9cf8-2429-552f57eb5034" />
+    <ReferenceAssembly PathName="d:\projects\307\classical\winjupiter\classical\packages\coding4fun.toolkit.storage.2.0.8\lib\wpa81\coding4fun.toolkit.storage.dll" HashGuid="10e1cfdd-97fb-256e-c050-81891682f11a" />
+    <ReferenceAssembly PathName="d:\projects\307\classical\winjupiter\classical\packages\winrtxamltoolkit.windowsphone.1.8.1.0\lib\wpa\winrtxamltoolkit.dll" HashGuid="221e17c6-64f2-d53e-b7b5-145a2dbe921c" />
+  </ReferenceAssemblyList>
+</XamlCompilerSaveState>
