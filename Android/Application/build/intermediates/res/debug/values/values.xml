@@ -15,6 +15,12 @@
     <!-- From: file:/C:/Users/Tim/workspace/ClassiCal/Android/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>
     <string name="app_name">Classical</string>
+    <!-- From: file:/C:/Users/Tim/workspace/ClassiCal/Android/Application/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="buttonText">Send</string>
+    <string name="empty"/>
+    <!-- From: file:/C:/Users/Tim/workspace/ClassiCal/Android/Application/src/main/res/values/base-strings.xml -->
+    <eat-comment/>
     <string name="intro_message">
         <![CDATA[
         
@@ -33,7 +39,7 @@
     <string name="sample_show_log">Show Log</string>
     <!-- From: file:/C:/Users/Tim/workspace/ClassiCal/Android/Application/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="text">Shawn: Hello</string>
+    <string name="text">Shawn: Hello\n</string>
     <!-- From: file:/C:/Users/Tim/workspace/ClassiCal/Android/Application/src/main/res/values/template-styles.xml -->
     <eat-comment/>
     <style name="AppTheme" parent="Theme.Sample"/>

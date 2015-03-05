@@ -1,15 +1,23 @@
 package com.classical;
 
-public class User {
+import com.mongodb.BasicDBObject;
+
+public class User extends MongoDoc {
 	String username;
 	//String PUID;	do we need puid?
 	String name;
-	Schedule mySchedule;
+	int id = 0;
+	/** This schedule will be built off of a user's registered classes and refreshed on request.
+	 * 	This will also determine what course communities a user is a part of. */
+	private Schedule classSchedule;
+	/** This schedule will be maintained by the user for other events. */
+	private Schedule otherSchedule;
 	
-	public User(String usename, String n, Schedule s) {
-		username = usename;
-		name = n;
-		mySchedule = s;
+	public User(String username, String name, Schedule classSchedule, Schedule otherSchedule) {
+		this.username = username;
+		this.name = name;
+		this.classSchedule = classSchedule;
+		this.otherSchedule = otherSchedule;
 	}
 	
 	public void ban() {
@@ -26,5 +34,10 @@ public class User {
 	
 	public void refresh() {
 		
+	}
+
+	@Override
+	public BasicDBObject toDocument() {
+		return new BasicDBObject("id", id).append("username", username).append("name", name);
 	}
 }

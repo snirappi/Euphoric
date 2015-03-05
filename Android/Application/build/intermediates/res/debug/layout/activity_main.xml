@@ -32,6 +32,7 @@
           android:layout_width="match_parent"
           android:layout_height="0px" />
 
+
 </LinearLayout>
 
 <!-- From: file:/C:/Users/Tim/workspace/ClassiCal/Android/Application/src/main/res/layout/activity_main.xml -->

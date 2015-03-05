@@ -5,43 +5,12 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Generator {
 
 	private static final char[] REPLACE_CHARS = {'<', '>', '\'', '\"', '&'};
-
-	public static final String[] COLORS = getFileContent("data/colors.txt").split("\n");
-	public static final String[] BIRDS = getFileContent("data/birds.txt").split("\n");
-	public static final String[] NOCTURNAL = getFileContent("data/nocturnal.txt").split("\n");
-	public static final String[] QUESTIONS = getFileContent("data/questions.txt").split("\n");
-	private static final Random RANDOM = new Random("ideastock".hashCode());
-	
-	public static String generateName(boolean isPublic) {
-		String name = getName(isPublic);
-		while (doesExist(name)) {
-			name = getName(isPublic);
-		}
-		return name;
-	}
-	
-	public static String getName(boolean isPublic) {
-		String name = buildName(isPublic);
-		while (doesExist(name)) {
-			name = buildName(isPublic);
-		}
-		return name;
-	}
-	
-	private static String buildName(boolean isPublic) {
-		return COLORS[RANDOM.nextInt(COLORS.length)] + COLORS[RANDOM.nextInt(COLORS.length)] +
-			((isPublic) ? (BIRDS[RANDOM.nextInt(BIRDS.length)]) : (NOCTURNAL[RANDOM.nextInt(NOCTURNAL.length)])) + "!";
-	}
-	
-	public static boolean doesExist(String name) {
-		return new File("generated/" + name.toLowerCase() + ".txt").exists();
-	}
+	public static final String NOT_FOUND = generatePage("404", new String[]{}, new String[]{}, new String[]{"default"}, new String[][]{{"Page not found"}});
 	
 	/**
 	 * Cleans input/output to prevent malicious script injection
@@ -105,10 +74,10 @@ public class Generator {
 		StringBuilder builder = new StringBuilder();
 		builder.append("<html>\n\t<head>\n\t\t<title>" + title + "</title>\n");
 		for (String s : css) {
-			builder.append("\t\t<link rel='stylesheet' type='text/css' href='/" + s + "'>\n");
+			builder.append("\t\t<link rel='stylesheet' type='text/css' href='" + s + "'>\n");
 		}
 		for (String s : js) {
-			builder.append("\t\t<script src='/" + s + "'></script>\n");
+			builder.append("\t\t<script src='" + s + "'></script>\n");
 		}
 		builder.append("\t</head>\n\t<body>\n\t\t<div class='container'>\n");
 		int max = -1;

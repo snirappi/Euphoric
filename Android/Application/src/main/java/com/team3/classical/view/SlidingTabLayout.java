@@ -22,12 +22,15 @@ import android.os.Build;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.TextView;
+
+import com.team3.classical.activities.SampleActivityBase;
 
 /**
  * To be used with ViewPager to provide a tab indicator component which give constant feedback as to

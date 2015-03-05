@@ -1,3 +1,10 @@
+/*OFFICIAL COLORS
+Darker: #6493E6;
+Lighter: #77B7FC;
+
+*/
+
+
 html {
 	width: 100%;
 }
@@ -25,7 +32,9 @@ div {
 
 #header {
 	display: block;
+	z-index: 100;
 	position: fixed;
+	min-width: 500pt;
 	height: 30pt;
 	width: 100%;
 	text-align: center;
@@ -42,7 +51,7 @@ div {
 	float:left;
 	display: inline-block;
 	background-size: 30pt 30pt;
-	background-image: url(assets/profile.png);
+	background-image: url(assets/LineUI/user.png);
 	margin-left: 0px;
 	height: 30pt;
 	width: 30pt;
@@ -51,7 +60,7 @@ div {
 
 #modeButton {
 	display: inline-block;
-	padding-top: 10pt;
+	padding-top: 0pt;
 	background-color: #77B7FC;
 	height: 40pt;
 	margin: 0pt 5pt;
@@ -67,7 +76,7 @@ div {
 
 #classButton {
 	height: 40pt;
-	padding-top: 10pt;
+	padding-top: 0pt;
 	margin: 0pt 5pt;
 	float:right;
 	background-color: #77B7FC;
@@ -81,7 +90,7 @@ div {
 #settingsButton {
 	float: right;
 	display: inline-block;
-	background-image: url(assets/settings.png);
+	background-image: url(assets/LineUI/settings.png);
 	background-size: 30pt 30pt;
 	margin-right: 0px;
 	height: 30pt;
@@ -94,11 +103,12 @@ div {
 	color: white;
 	box-shadow: 0px 3px 5px rgba(0,0,0,.5);
 	transition: box-shadow .3s;
+	text-align: center;
 }
 
 #classMenu {
 	margin: 0px;
-	padding: 5px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
 	list-style-type: none;
 	cursor: pointer;
 }
@@ -121,6 +131,10 @@ div {
 	box-shadow: 0pt 0pt 5pt white;
 }
 
+#classMenu li:first-child {
+	padding-top: 10pt;
+}
+
 #modeButton:hover {
 	overflow: visible;
 }
@@ -129,14 +143,25 @@ div {
 	overflow: visible;
 }
 
-#content {
+.content {
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #CCC;
 	max-width: 1000px;
 	min-width:  320px;
-	padding-top: 40pt;
+	max-height: 800pt;
+	padding: 50pt 10pt;
 	height: auto;
+}
+
+#content h2 {
+	text-align: center;
+}
+
+#loginButton {
+	width: 200pt;
+	margin: 10pt auto;
+	padding: 5pt;
 }
 
 .hoverBox {
@@ -151,16 +176,20 @@ div {
 	padding: 10pt;
 	top: 50%;
 	border-radius: 1pt;
+	box-shadow: 0pt 0pt 5pt #000;
+
 	transform: translateY(-50%);
 	-webkit-transform: translateY(-50%);
 }
 
-#loginBox {
+#loginBox, #settingsBox, #userBox,
+#loadingBox, #reportBox, #newPostBox,
+#newReplyBox, #newEventBox, #eventOpsBox,  {
 	display: none;
 }
 
 #darkBox {
-	z-index: 1;
+	z-index: 5;
 	text-align: center;
 	background-color: rgba(0,0,0,.5);
 	position: absolute;
@@ -175,8 +204,6 @@ div {
 	display: inline-block;
 	overflow: hidden;
 	margin-bottom: 10pt;
-	border-radius: 5pt;
-	box-shadow: 0pt 3pt 5pt #000;
 }
 
 #loginBox input {
@@ -187,16 +214,381 @@ div {
 	height: 20pt;
 }
 
+#newPostBox input{
+	width: 90%;
+	margin-bottom: 10pt;
+	margin-left: auto;
+	margin-right: auto;
+	height: 20pt;
+}
+
+#newPostBox textarea {
+	width: 90%;
+	margin-bottom: 10pt;
+	margin-left: auto;
+	margin-right: auto;
+	height: 70pt;
+}
+
+#newReplyBox textarea {
+	width: 90%;
+	margin-bottom: 10pt;
+	margin-left: auto;
+	margin-right: auto;
+	height: 70pt;
+}
+
+#newEventBox input{
+	width: 90%;
+	margin-bottom: 10pt;
+	margin-left: auto;
+	margin-right: auto;
+	height: 20pt;
+}
+
+#newEventBox textarea {
+	width: 90%;
+	margin-bottom: 10pt;
+	margin-left: auto;
+	margin-right: auto;
+	height: 70pt;
+}
+
+#eventOpsBox input{
+	width: 90%;
+	margin-bottom: 10pt;
+	margin-left: auto;
+	margin-right: auto;
+	height: 20pt;
+}
+
+#eventOpsBox textarea {
+	width: 90%;
+	margin-bottom: 10pt;
+	margin-left: auto;
+	margin-right: auto;
+	height: 70pt;
+}
+
+
 .hoverBox .button {
 	margin-top: 10pt;
 	padding-top: 5pt;
 	height: 25pt;
+
 }
 
-#userBox {
-	display:none;
-}
-
-#logOutButton {
+#reportBox .button, #logOutButton {
 	background-color: #F06F7F;
+}
+
+#newEventRecurring {
+	text-align: center;
+	display: inline;
+	margin: 0px auto;
+}
+
+.button:active {
+	background-color: white;
+}
+
+
+
+
+/*CHATROOM*/
+
+#chatroom {
+	padding-top: 50pt;
+	padding-bottom: 10pt;
+	height: auto;
+}
+
+#chatBox {
+	width: 100%;
+	height: auto;
+	min-height: 300pt;
+	max-height: 600pt;
+	overflow: scroll;
+}
+
+.chatMessageBox {
+	overflow: hidden;
+	/*border: solid 1pt black;*/
+}
+
+.sender {
+	display: inline-block;
+	float: left;
+
+}
+
+.you {
+	float: right;
+}
+
+.sender::after {
+	content: ":";
+}
+
+.chatMessageBox:hover .reportButton {
+	opacity: .9;
+}
+
+#reportedSender {
+	padding-right: 3pt;
+	border-right: solid 1pt black;
+}
+
+.messageContainer {
+	display: block;
+	float:left;
+	width: 100%;
+}
+
+.reportButton {
+	opacity: 0;
+	display: inline-block;
+	background-color: #F06F7F;
+	padding: 2pt;
+	border-radius: 2pt;
+	transition: opacity .2s;
+}
+
+.fromMessage {
+	display: inline-block;
+	color: white;
+	background-color: #6493E6;
+	border-radius: 7pt 7pt 7pt 0pt;
+	padding: 3pt 10pt;
+	overflow: hidden;
+}
+
+.toMessage {
+	right: 0pt;
+	float:right;
+	display: inline-block;
+	color: white;
+	text-align: right;
+	border-radius: 7pt 7pt 0pt 7pt;
+	padding: 3pt 10pt;
+	overflow: scroll;
+	background-color: #77B7FC;
+}
+
+
+#chatInput {
+	display: inline-block;
+	width: 89%;
+	padding: 5pt;
+	box-sizing: border-box;
+}
+
+#sendInputButton{
+	display: inline-block;
+	width: 9%;
+	height: 22pt;
+	float: right;
+	margin-top: 2pt;
+	padding: 3pt;
+	text-align: center;
+	background-color: #6493E6;
+	background-image: url("assets/LineUI/done.png");
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: box-shadow .2s;
+	-webkit-transition: box-shadow .2s;
+}
+
+#sendInputButton:hover {
+	box-shadow: 0pt 0pt 5pt white inset;
+}
+
+
+
+/*Forum Style*/
+
+
+#newPostButton {
+	margin-top: 10pt;
+	display: inline-block;
+	float: right;
+	padding: 10pt 20pt;
+}
+
+#forumPosts {
+	margin-top: 70pt;
+	text-align: center;
+}
+
+.forumPost {
+	position: relative;
+	background-color: white;
+	box-shadow: 0pt 2pt 0pt #555;
+	padding: 5pt;
+	margin: 10pt 0pt;
+	transition: background-color .3s;
+}
+
+.forumPost:hover {
+	background-color: #DDD;
+}
+
+.author {
+	left: 0pt;
+	position: absolute;
+	padding: 5pt;
+	top: 0pt;
+	font-size: 17pt;
+}
+
+.title {
+	display: inline-block;
+	font-size: 20pt;
+	font-weight: 800;
+	margin: 0pt auto;
+}
+
+.date {
+	left: 0pt;
+	position: absolute;
+	padding: 5pt;
+	bottom: 0pt;
+}
+
+.replies {
+	margin-right: 2pt;
+	font-size: 20pt;
+	right: 0pt;
+	position: absolute;
+	padding: 2pt 5pt;
+	top: 0pt;
+	font-weight: 800;
+	-webkit-text-stroke: 1px white;
+	color: #6493E6;
+	background-image:url(assets/LineUIBlack/email.png);
+	background-size: 100% auto;
+	background-position: 0pt 5pt;
+	background-repeat: no-repeat;
+}
+
+.score {
+	margin-right: 2pt;
+	font-size: 20pt;
+	font-weight: 800;
+	-webkit-text-stroke: 1px white;
+	color: #6493E6;
+	right: 0pt;
+	position: absolute;
+	padding: 2pt 5pt;
+	bottom: 0pt;
+	background-image:url(assets/LineUIBlack/heart.png);
+	background-size: 100% auto;
+	background-position: 0pt 5pt;
+	background-repeat: no-repeat;
+
+}
+
+.preview {
+	color: #666;
+	margin: auto;
+	width: 50%;
+	display: block;
+	text-align: center;
+	word-wrap: break-word;
+}
+
+.originalPost {
+	text-align: center;
+	position: relative;
+	background-color: white;
+	box-shadow: 0pt 2pt 0pt #555;
+	padding:5pt;
+	margin: 10pt 0pt;
+}
+
+.originalPost .preview {
+	color: black;
+}
+
+.forumReply {
+	text-align: center;
+	position: relative;
+	min-height: 50pt;
+	background-color: white;
+	box-shadow: 0pt 2pt 0pt #555;
+	padding:5pt;
+	margin: 10pt 0pt;
+}
+
+.forumReply .preview{
+	color: black;
+}
+
+.reportPost {
+	display:inline-block;
+	margin-right: 2pt;
+	font-size: 20pt;
+	right: 0pt;
+	position: absolute;
+	padding: 2pt 5pt;
+	top: 0pt;
+	color: #6493E6;
+	background-image:url(assets/LineUIBlack/deleted.png);
+	background-size: 100% auto;
+	background-position: 0pt 5pt;
+	background-repeat: no-repeat;
+}
+
+#newReplyButton {
+	margin-top: 10pt;
+	display: inline-block;
+	float: right;
+	padding: 10pt 20pt;
+}
+
+#backButton {
+	margin-top: 10pt;
+	display: inline-block;
+	float: left;
+	padding: 10pt 20pt;
+}
+
+.hidden {
+	display: none;
+}
+
+
+
+
+/*CODE FROM http://tobiasahlin.com/spinkit/
+	for a loading icon
+*/
+.spinner {
+  width: 30px;
+  height: 30px;
+  background-color: #FFF;
+
+  margin: 100px auto;
+  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
+  animation: rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
 }

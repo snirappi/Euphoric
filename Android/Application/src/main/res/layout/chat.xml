@@ -6,13 +6,15 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="0dip"
         android:layout_weight="1"  >
+
         <TextView
             android:text="@string/text"
-            android:id="@+id/textOutput"
+            android:id="@+id/textOutput2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="5dp"
@@ -34,6 +36,15 @@
             android:inputType="textNoSuggestions">
             <requestFocus></requestFocus>
         </EditText>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/buttonText"
+            android:id="@+id/buttonSend"
+            android:layout_alignBottom="@+id/chatText"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="#ff6493e6" />
 
     </LinearLayout>
 

@@ -2,52 +2,214 @@
 <html>
 	<head>
 		<title>Classical</title>
+		<meta charset="utf-8" />
 		<link href="base.css" type="text/css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
+		<link rel='stylesheet' href='fullcalendar.min.css' />
 		<script src="jquery-2.1.1.min.js"></script>
+		<script src='moment.min.js'></script>
+		<script src='fullcalendar.min.js'></script>
 	</head>
 	<body>
+
 	<div id="header">
 		<div id="profileButton"></div>
-		<div id="modeButton" class="button">Calendar
+		<div id="modeButton" class="button">
 		<ul id="classMenu">
-			<li>Forum</li>
-			<li>Chatroom</li>
+			<li id="calBut">Calendar</li>
+			<li id="forBut">Forum</li>
+			<li id="chaBut">Chatroom</li>
 		</ul>
 		</div>
 		<div id="titleText">Classical</div>
 		<div id="settingsButton"></div>
-		<div id="classButton" class="button">CS 30700
+		<div id="classButton" class="button">
 		<ul id="classMenu">
+			<li>CS 30700</li>
 			<li>CS 25200</li>
 			<li>MA 26500</li>
 			<li>STAT 35000</li>
-		</ul></div>
+		</ul>
+		</div>
 	</div>
 
-	<div id="content">
-		test
+	<div id="splash" class="content">
+
+		<h2>Hi, Welcome to Classical</h2>
+		Classical is an expansive service dedicated to giving you a connection to your classmates
+
+		<br />
+		Also try our apps!
+
+		<br />
+		<h2>You can login to your purdue account here:</h2>
+
+
+		<div id="loginButton" class="button">
+			Log in
+		</div>
 	</div>
+
+	<div id="chatroom" class="content hidden">
+		<div id="chatBox">
+			<div class="chatMessageBox">
+				<span class="sender">Luke</span>
+				<span class="reportButton button">Report</span>
+				<div class="messageContainer">
+					<div class="fromMessage">Welcome to Classical!
+					</div>
+				</div>
+			</div>
+
+			<div class="chatMessageBox">
+				<span class="sender you">You</span>
+				<div class="messageContainer">
+					<div class="toMessage">
+						You can send things to your classmates here!
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<input id="chatInput" placeholder="Type your message here..." /><div id="sendInputButton"></div>
+	</div>
+
+	<div id="forum" class="content hidden">
+		<div id="newPostButton" class="button">New Post</div>
+		<div id="forumPosts">
+
+			<div class="forumPost" id="XXXXXX">
+				<span class="author">John</span>
+				<span class="title">When is hw due?</span>
+				<span class="replies">4</span>
+				<br />
+				<span class="date">1/4/20 2:30pm</span>
+				<span class="score">6</span>
+				<span class="preview">hey guys i was wondering when is the homework due i have to do it soon and its very important that i do it so can you...
+				</span>
+			</div>
+
+			<div class="forumPost" id="YYYYYY">
+				<span class="author">John</span>
+				<span class="title">When is hw due?</span>
+				<span class="replies">4</span>
+				<br />
+				<span class="date">1/4/20 2:30pm</span>
+				<span class="score">6</span>
+				<span class="preview">hey guys i was wondering when is the homework due i have to do it soon and its very important that i do it so can you...
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div id="forumPostView" class="content hidden">
+
+		<div class="originalPost" id="XXXXXX">
+			<span class="author">John</span>
+			<span class="title">When is hw due?</span>
+			<span class="reportID">.</span>
+			<br />
+			<span class="date">1/4/20 2:30pm</span>
+			<span class="score">6</span>
+			<span class="reportPost">_</span>
+			<span class="preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</span>
+		</div>
+		<div id="forumReplies">
+			<div class="forumReply" id="YYYYYY">
+
+				<span class="author">Luke</span>
+				<br />
+				<span class="date">1/4/20 2:31pm</span>
+				<span class="score">6</span>
+				<span class="reportPost">_</span>
+				<span class="preview">aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				</span>
+			</div>
+		</div>
+		<div id="backButton" class="button">Back</div>
+		<div id="newReplyButton" class="button">New Reply</div>
+	</div>
+
+	<!-- THIS IS MADE USING FULLCALENDAR.IO, IT WOULD NOT BE POSSIBLE WITHOUT THEM-->
+
+	<div id="calendarView" class="content hidden">
+		<div id="calendar"></div>
+	</div>
+
 	<div id="darkBox">
 		<div id="loginBox" class="hoverBox">
 			<div id="logo">
-			<img src="assets/abstract.jpg"/>
+			<img src="assets/logo.png"/>
 			</div>
-			<input id="username" placeholder="Purdue Career Account Username"/>
-			<input id="password" type="password" placeholder="Purdue Career Account Password" />
+			<input id="usernameBox" placeholder="Purdue Career Account Username"/>
+			<input id="passwordBox" type="password" placeholder="Purdue Career Account Password" />
 		</div>
+
 		<div id="userBox" class="hoverBox">
 			<div id="logo">
 				$$Mitch Holm
 			</div>
-			<div id="reloadClasses"class='button'>Refresh Classes</div>
+			<div id="reloadClasses" class='button'>Refresh Classes</div>
 			<div id="logOutButton" class="button">Log Out</div>
 		</div>
+
+		<div id="settingsBox" class="hoverBox">
+		This will have settings, feel free to put any settings you need to in here for testing.<br />
+			<input type="checkbox" id="fakeUser"> spoof username<br />
+		</div>
+
+		<div id="reportBox" class="hoverBox">
+			Why are you reporting the following item?<br />
+			<span id="reportedSender"></span>
+			<span id="reportedMessage"></span>
+			<div id="reportCheating" class='button'>Report Cheating</div>
+			<div id="reportOther" class="button">Report Other</div>
+		</div>
+
+		<div id="newPostBox" class="hoverBox">
+			<h2>New Post</h2>
+			<input id="newPostTitle" placeholder="Title"/>
+			<textarea id="newPostContent" placeholder="Description" ></textarea>
+			<div id="submitPost" class="button">Submit</div>
+		</div>
+
+		<div id="newReplyBox" class="hoverBox">
+			<h2>Reply</h2>
+			<textarea id="newReplyContent" placeholder="Reply" ></textarea>
+			<div id="submitReply" class="button">Submit</div>
+		</div>
+
+		<div id="newEventBox" class="hoverBox">
+			<h2>New Event</h2>
+			<br />
+			Weekly?<input type="checkbox" id="newEventRecurring"><br />
+			<span id="newEventTimeScale">3:30</span> <br /><!-- This will be supplied by the click event -->
+			<input id="newEventTitle" placeholder="Title"/>
+			<input id="newEventDuration" placeholder="Duration (hours)"/>
+			<textarea id="newEventContent" placeholder="Description" ></textarea>
+			<div id="submitEvent" class="button">Submit Event</div>
+		</div>
+
+		<div id="eventOpsBox" class="hoverBox">
+			<h2 id="eventOpTitle"></h2>
+			<span id="eventAuthor"></span><br />
+			<span id="eventOpTimeScale"></span> <br />
+			<div id="eventOpDesc"> </div>
+			<div id="joinEvent" class="button">Join Event</div>
+			<div id="hideEvent" class="button">Hide Event</div>
+			<div id="reportEvent" class="button">Report Event</div>
+			<div id="removeEvent" class="button hidden">Remove Event</div>
+		</div>
+
+		<div id="loadingBox">
+			<div class="spinner"></div>
+		</div>
+
 	</div>
 
-	<!-- <div id="darkBox">
-
-	</div> -->
 
 	</body>
+		<script src="scripts.js"></script>
+
 </html>

@@ -42,7 +42,7 @@ import static com.team3.classical.slidingtabs.R.layout.fragment_sample;
  * when scrolling.
  */
 public class SlidingTabsBasicFragment extends Fragment {
-    public static final String TAG = "MainActivity";
+    public static final String TAG = "SlidingTabsBasic";
     SampleActivityBase app;
     static final String LOG_TAG = "SlidingTabsBasicFragment";
     static final String[] titles = {"Calendar","Chat","Forum"};
@@ -67,6 +67,7 @@ public class SlidingTabsBasicFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d("Hello there", TAG);
         return inflater.inflate(fragment_sample, container, false);
     }
 
@@ -141,26 +142,27 @@ public class SlidingTabsBasicFragment extends Fragment {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             // Inflate a new layout from our resources
-            //Log.d(TAG, "Switching Tabs! to " + position);
+            ChatSender cs = new ChatSender();
             app.closeKeyboard();
             View view = getActivity().getLayoutInflater().inflate(R.layout.chat,
                     container, false);
             switch (position) {
                 case 0:
-                    //Log.d(TAG, "    Enter 0");
+                    Log.d(TAG, "    Enter 0");
                     view = getActivity().getLayoutInflater().inflate(R.layout.calendar,
                             container, false);
                     break;
                 case 1:
-                    //Log.d(TAG, "    Enter 1");
+                    Log.d(TAG, "    Enter 1");
                     view = getActivity().getLayoutInflater().inflate(R.layout.chat,
                             container, false);
-                    ChatSender cs = new ChatSender();
+                    cs.startListener(view);
                     break;
                 case 2:
-                    //Log.d(TAG, "    Enter 2");
+                    Log.d(TAG, "    Enter 2");
                     view = getActivity().getLayoutInflater().inflate(R.layout.forum,
                             container, false);
+                    //cs.startListener(view);
                     break;
             }
             container.addView(view);

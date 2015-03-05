@@ -5,3 +5,8 @@ Android/.idea/libraries/
 Android/.DS_Store/
 Android/build/
 *.class
+.classpath
+.project
+.settings/
+backend/ClassiCalServer/lib/
+backend/data/
