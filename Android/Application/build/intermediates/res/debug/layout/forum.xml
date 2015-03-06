@@ -5,37 +5,12 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"  >
-        <TextView
-            android:text="@string/text"
-            android:id="@+id/textOutput"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:paddingTop="5dp" />
-    </ScrollView>
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp"
-        android:baselineAligned="true">
-        <EditText android:layout_weight="1" android:id="@+id/forumTextField"
-            android:layout_height="45dp" android:layout_width="0dip" android:imeOptions="actionSend"
-            android:inputType="text">
-            <requestFocus></requestFocus>
-        </EditText>
-
-    </LinearLayout>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listview"
+    android:text="@+id/label"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    </ListView>
 
 </LinearLayout>
 <!-- From: file:/C:/Users/Tim/workspace/ClassiCal/Android/Application/src/main/res/layout/forum.xml -->

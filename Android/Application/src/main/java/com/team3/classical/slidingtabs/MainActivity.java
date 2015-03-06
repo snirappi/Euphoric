@@ -25,10 +25,14 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ViewAnimator;
 
+import com.team3.classical.activities.ListViewActivity;
 import com.team3.classical.activities.SampleActivityBase;
+
+import java.util.List;
 
 /**
  * A simple launcher activity containing a summary sample description, sample log and a custom
@@ -40,7 +44,6 @@ import com.team3.classical.activities.SampleActivityBase;
 public class MainActivity extends SampleActivityBase {
 
     public static final String TAG = "MainActivity";
-
     // Whether the Log Fragment is currently shown
     private boolean mLogShown;
 
@@ -58,19 +61,5 @@ public class MainActivity extends SampleActivityBase {
         setTitle("CS307"); //TODO: Make dynamic based on class
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        MenuItem logToggle = menu.findItem(R.id.menu_toggle_log);
-        //logToggle.setVisible(findViewById(R.id.chatText) instanceof ViewAnimator);
-        logToggle.setTitle(mLogShown ? R.string.sample_hide_log : R.string.sample_show_log);
-
-        return super.onPrepareOptionsMenu(menu);
-    }
 
 }

@@ -32,10 +32,11 @@ public final class R {
         public static final int buttonSend=0x7f08000a;
         public static final int chatText=0x7f08000b;
         public static final int chatTextField=0x7f080009;
-        public static final int forumTextField=0x7f08000d;
         public static final int item_title=0x7f080014;
+        public static final int label=0x7f08000d;
         public static final int last=0x7f080012;
         public static final int linearLayout1=0x7f080008;
+        public static final int listview=0x7f08000c;
         public static final int ll1=0x7f080002;
         public static final int ll2=0x7f080003;
         public static final int ll3=0x7f080004;
@@ -46,7 +47,6 @@ public final class R {
         public static final int sample_content_fragment=0x7f080001;
         public static final int sample_main_layout=0x7f080000;
         public static final int sliding_tabs=0x7f08000e;
-        public static final int textOutput=0x7f08000c;
         public static final int textOutput2=0x7f080007;
         public static final int time=0x7f080013;
         public static final int title=0x7f080010;

@@ -4,7 +4,13 @@ Android/.idea/workspace.xml/
 Android/.idea/libraries/
 Android/.DS_Store/
 Android/build/
+Android/bin/
+Android/gen/
 *.class
+*.apk
+*.ap_
+*.dex
+*bin
 .classpath
 .project
 .settings/

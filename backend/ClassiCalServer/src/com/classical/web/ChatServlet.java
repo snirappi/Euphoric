@@ -33,7 +33,7 @@ public class ChatServlet extends HttpServlet{
 		response.addHeader("Access-Control-Allow-Origin", "*");
 		String message = request.getParameter("content");
 		String user = request.getParameter("user");
-		if(message != null)		
+		if(message != null || !"".equals(message))		
 			sendMessage(new Message(user, message, -1, -1)); //sends message to clients
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();

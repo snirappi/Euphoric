@@ -15,10 +15,11 @@ int drawable tile 0x7f020006
 int id buttonSend 0x7f08000a
 int id chatText 0x7f08000b
 int id chatTextField 0x7f080009
-int id forumTextField 0x7f08000d
 int id item_title 0x7f080014
+int id label 0x7f08000d
 int id last 0x7f080012
 int id linearLayout1 0x7f080008
+int id listview 0x7f08000c
 int id ll1 0x7f080002
 int id ll2 0x7f080003
 int id ll3 0x7f080004
@@ -29,7 +30,6 @@ int id place 0x7f080011
 int id sample_content_fragment 0x7f080001
 int id sample_main_layout 0x7f080000
 int id sliding_tabs 0x7f08000e
-int id textOutput 0x7f08000c
 int id textOutput2 0x7f080007
 int id time 0x7f080013
 int id title 0x7f080010

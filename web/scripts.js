@@ -1,8 +1,12 @@
 var loading = false;
 var className = "CS 30700";
+var courseNum = 0;
 var username = "mholm";
 var calendar;
 var currentStartTime;
+
+var courses = ["CS 30700", "MA 26100", "STAT 35000", "CS 25200"];
+var crns    = ["43855", "12345", "23456", "34567"];
 
 
 
@@ -40,6 +44,7 @@ function newMsg(text) {
 	$.post(
 		"http://localhost:8080/chat", {
 			command: "message",
+			crn: crns[courseNum],
 			user: username,
 			content: text
 		},
@@ -56,6 +61,7 @@ function newPost(ttitle, desc){
 		"newPost", {
 			command: "newPost",
 			user: username,
+			crn: crns[courseNum],
 			title: ttitle,
 			descrip: desc
 		},
@@ -71,6 +77,7 @@ function newReply(id, text){
 			command: "newPost",
 			user: username,
 			postId: id,
+			crn: crns[courseNum],
 			replyContent: text
 		},
 		function(data) {
@@ -88,6 +95,7 @@ function report(id, rreason){
 		"reportPost", {
 			command: "newPost",
 			user: username,
+			crn: crns[courseNum],
 			postId: id,
 			reason: rreason,
 			type: chat
@@ -128,6 +136,7 @@ function loadPost(id){
 	$.post(
 		"loadPost", {
 			command: "loadPost",
+			crn: crns[courseNum],
 			user: username,
 			postId: id
 		},
@@ -141,6 +150,7 @@ function loadChat(){
 	$.post(
 		"loadChat", {
 			command: "loadChat",
+			crn: crns[courseNum],
 			user: username
 		},
 		function(data) {
@@ -153,6 +163,7 @@ function loadCalendarView(){
 	$.post(
 		"loadCal", {
 			command: "loadCal",
+			crn: crns[courseNum],
 			user: username
 		},
 		function(data) {
@@ -166,6 +177,7 @@ function loadForum(){
 		"loadForum", {
 			command: "login",
 			user: username,
+			crn: crns[courseNum],
 			currClass: className
 		},
 		function(data) {
@@ -179,6 +191,7 @@ function newEvent(name, start, end, recurring, descrip){
 		"newEvent", {
 			command: "newEvent",
 			user: username,
+			crn: crns[courseNum],
 			title: name,
 			startTime: start,
 			endTime: end,
@@ -190,8 +203,14 @@ function newEvent(name, start, end, recurring, descrip){
 			//
 		});
 }
-function removeEvent(){
-
+function removeEvent(eid){
+	$.post(
+		"removeEvent", {
+			command: "removeEvent",
+			user: username,
+			crn: crns[courseNum],
+			id: eid
+		})
 }
 
 function editEvent(eId, name, start, end, recurring, descrip){
@@ -201,6 +220,7 @@ function editEvent(eId, name, start, end, recurring, descrip){
 			user: username,
 			id: eId,
 			title: name,
+			crn: crns[courseNum],
 			startTime: start.format,
 			endTime: end.format,
 			recur: recurring,
@@ -217,6 +237,7 @@ function joinEvent(eId){
 		"joinEvent", {
 			command: "joinEvent",
 			user: username,
+			crn: crns[courseNum],
 			id: eId
 		},
 		function(data) {
@@ -440,27 +461,29 @@ $('#darkBox').click(function(e) {
 
 
 $('#chatInput').keypress(function(e) {
-	if( e.which == 13) {
+	if( e.which == 13 && $('#chatInput').val() != '') {
 		newMsg($('#chatInput').val());
 		//TEMPORARY
-		if($("#fakeUser").is(':checked'))
-			addMessage($('#chatInput').val(), "Jerg", Math.floor(Math.random()*1000000))
-		else
-			addMessage($('#chatInput').val(), username, Math.floor(Math.random()*1000000))
+		// if($("#fakeUser").is(':checked'))
+		// 	addMessage($('#chatInput').val(), "Jerg", Math.floor(Math.random()*1000000))
+		// else
+		// 	addMessage($('#chatInput').val(), username, Math.floor(Math.random()*1000000))
 
 		$('#chatInput').val('');
 	}
 });
 
 $('#sendInputButton').click(function(){
-	newMsg($('#chatInput').val());
-	//TEMPORARY
-	if($("#fakeUser").is(':checked'))
-		addMessage($('#chatInput').val(), "Jerg", Math.floor(Math.random()*1000000))
-	else
-		addMessage($('#chatInput').val(), username, Math.floor(Math.random()*1000000))
+	if($('#chatInput').val() != ''){
+		newMsg($('#chatInput').val());
+		// //TEMPORARY
+		// if($("#fakeUser").is(':checked'))
+		// 	addMessage($('#chatInput').val(), "Jerg", Math.floor(Math.random()*1000000))
+		// else
+		// 	addMessage($('#chatInput').val(), username, Math.floor(Math.random()*1000000))
 
-	$('#chatInput').val('');
+		$('#chatInput').val('');
+	}
 })
 
 $('.reportButton').click(function(){
@@ -492,6 +515,7 @@ $('#passwordBox').keypress(function(e) {
 		$('#calendarView').removeClass('hidden');
 		$('#calendarView').fadeIn();
 		loading = false;
+		username = $('#usernameBox').val();
 	}
 })
 

@@ -17,11 +17,13 @@
 package com.team3.classical.slidingtabs;
 
 import com.team3.classical.activities.ChatSender;
+import com.team3.classical.activities.ListViewActivity;
 import com.team3.classical.activities.SampleActivityBase;
 import com.team3.classical.slidingtabs.R;
 import com.team3.classical.view.SlidingTabLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -34,6 +36,8 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
+import java.util.List;
+
 import static com.team3.classical.slidingtabs.R.layout.fragment_sample;
 
 /**
@@ -44,6 +48,8 @@ import static com.team3.classical.slidingtabs.R.layout.fragment_sample;
 public class SlidingTabsBasicFragment extends Fragment {
     public static final String TAG = "SlidingTabsBasic";
     SampleActivityBase app;
+    ChatSender cs = new ChatSender();
+    ListViewActivity lva;// = new ListViewActivity();
     static final String LOG_TAG = "SlidingTabsBasicFragment";
     static final String[] titles = {"Calendar","Chat","Forum"};
     /**
@@ -67,7 +73,6 @@ public class SlidingTabsBasicFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Hello there", TAG);
         return inflater.inflate(fragment_sample, container, false);
     }
 
@@ -142,7 +147,6 @@ public class SlidingTabsBasicFragment extends Fragment {
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             // Inflate a new layout from our resources
-            ChatSender cs = new ChatSender();
             app.closeKeyboard();
             View view = getActivity().getLayoutInflater().inflate(R.layout.chat,
                     container, false);
@@ -156,13 +160,16 @@ public class SlidingTabsBasicFragment extends Fragment {
                     Log.d(TAG, "    Enter 1");
                     view = getActivity().getLayoutInflater().inflate(R.layout.chat,
                             container, false);
-                    cs.startListener(view);
+                    if(ChatSender.numInstances == 0) {
+                        cs.startListener(view);
+                        ChatSender.numInstances++;
+                    }
                     break;
                 case 2:
                     Log.d(TAG, "    Enter 2");
                     view = getActivity().getLayoutInflater().inflate(R.layout.forum,
                             container, false);
-                    //cs.startListener(view);
+                    lva = new ListViewActivity(view);
                     break;
             }
             container.addView(view);

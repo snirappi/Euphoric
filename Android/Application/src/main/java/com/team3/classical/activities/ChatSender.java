@@ -15,30 +15,16 @@ import com.team3.classical.slidingtabs.R;
 /**
  * Created by Tim on 2/22/2015.
  */
-public class ChatSender extends Activity{
+public class ChatSender extends Activity {
     private static final String TAG = ChatSender.class.getSimpleName();
     String msg;
-
+    public static int numInstances;
     @Override public void onCreate(Bundle savedInstanceState) {
         //Log.d(TAG, "CREATED CHATSENDER");
         super.onCreate(savedInstanceState);
 
 
     }
-    /*chatMessage.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if (actionId == EditorInfo.IME_ACTION_SEND) {
-                Log.d(TAG, "Sent message!");
-                chatMessage.setText("");
-                return true;
-            } else {
-                chatMessage.setText("HELLO WORLD");
-                return false;
-            }
-        }
-    }
-    );*/
     public void startListener(View v){
         final EditText chatMessage = (EditText) v.findViewById(R.id.chatTextField);
         final TextView message = (TextView) v.findViewById(R.id.textOutput2);
@@ -76,5 +62,10 @@ public class ChatSender extends Activity{
             messageHistory.append(user + ": ");
             messageHistory.append(message + "\n");
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 }
